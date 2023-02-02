@@ -7,6 +7,7 @@ from .models import Avatar
 
 def inicio(request):
     posts = Post.objects.all()
+    #Paginacion
     paginator = Paginator(posts, 5)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
@@ -38,6 +39,7 @@ def profile(request):
 # Vista de posteos del usuario
 def view_name(request):
     user_posts = Post.objects.filter(user=request.user)
+    #Paginacion
     paginator = Paginator(user_posts, 5)
     page = request.GET.get('page')
     user_posts = paginator.get_page(page)
