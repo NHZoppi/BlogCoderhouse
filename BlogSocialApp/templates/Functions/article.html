@@ -1,0 +1,12 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/article.css' %}">
+<h1>{{ article.title }}</h1>
+<img src="{{ article.image.url }}" alt="{{ article.title }}" class = "img-thumbnail">
+<h3>{{ article.description }}</h3>
+<p>{{ article.content|safe }}</p>
+
+{% endblock content %}

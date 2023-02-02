@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+
+{% if user_posts %}
+<h1 class = "text-center border border-primary p-3 mb-2 bg-secondary text-white"> POSTS DE {{ user.username }} </h1>
+    {% for post in user_posts %}
+    <br>
+            <article class="mb-4">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <h3>{{ post.title }}</h3>
+                            <img src="{{ post.image.url }}" class = "img-fluid">
+                            <p>{{ post.description|safe }}<p>
+                            <p>{{post.timestamp}}<p>
+                            <a href="{% url 'article_view' article_id=post.id %}"class="btn btn-primary">Read more..</a>
+                            <a href="{% url 'edit_post' post.pk %}"> Editar </a>
+                            <a href="{% url 'post_delete' post.pk %}"> Eliminar </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+    {% endfor %}
+{% else %}
+<h1> Todavia no has hecho ningun post </h1>
+{% endif %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if user_posts.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ posts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current-page">
+            {{ user_posts.number }}
+        </span>
+
+        {% if user_posts.has_next %}
+            <a href="?page={{ user_posts.next_page_number }}">next</a>
+            <a href="?page={{ user_posts.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock content %}

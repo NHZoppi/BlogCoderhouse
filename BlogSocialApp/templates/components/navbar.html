@@ -1,0 +1,26 @@
+<div class="collapse navbar-collapse" id="navbarResponsive">
+  <ul class="navbar-nav ms-auto py-4 py-lg-0">
+      <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'Inicio' %}">Home</a></li>
+      {% if user.is_authenticated %}
+      <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'post' %}">Create Post</a></li>
+      <!--         DropDown          -->
+
+      <div class="dropdown">
+        <img src="{{ user.avatar.image.url }}" class="avatar">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ user.username }}
+        </button>
+
+        <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+          <li><a class="dropdown-item" href="{% url 'postusuario' %}">My posts</a></li>
+          <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+      </div>
+
+      {% else %}
+      <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'register' %}">Register</a></li>
+      <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'login' %}">Login</a></li>
+      {% endif %}
+  </ul>
+</div>

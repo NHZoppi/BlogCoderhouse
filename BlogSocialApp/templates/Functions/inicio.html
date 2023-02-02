@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+
+<div class="container">
+  <div class="columna-post">
+
+    {% for post in posts %}
+
+      <div class="card mb-3">
+          <img src="{{ post.image.url }}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <h6>@{{ post.user.username }} </h6>
+          <p class="card-text">{{post.description}}</p>
+          <p class="card-text"><small class="text-muted">{{post.timestamp}}</small></p>
+          <a href="{% url 'article_view' article_id=post.id %}"class="btn btn-primary">Read more..</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="pagination">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ posts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current-page">
+            {{ posts.number }}
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}">next</a>
+            <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock content %}
