@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.media }}
+  {{ form.as_p| safe }}
+  <button type="submit">Guardar cambios</button>
+</form>
+
+{% endblock %}
