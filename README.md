@@ -4,7 +4,7 @@ Este es un proyecto de Django que permite crear y ver un blog.
 ## Instalación
 Para instalar este proyecto, siga los siguientes pasos:
 
-Clone este repositorio: git clone https://github.com/NHZoppi/django-blog.git
+Clone este repositorio: git clone https://github.com/NHZoppi/BlogCoderhouse.git
 
 Instale las dependencias: pip install -r requirements.txt
 
