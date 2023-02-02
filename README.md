@@ -14,6 +14,9 @@ Corra el servidor de desarrollo: python manage.py runserver
 
 ## Uso
 Una vez que el servidor esté corriendo, puede acceder al blog a través de la URL http://localhost:8000/.
+Para acceder al SuperUser: 
+User: Admin
+Password: Hola123@
 
 ## Modelos del Blog
 
