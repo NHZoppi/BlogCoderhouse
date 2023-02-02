@@ -1,0 +1,34 @@
+/* Estilo para la columna de publicaciones */
+.columna-post {
+    width: 100%; /* Ocupa el ancho completo de la pantalla */
+    display: flex; /* Utiliza flexbox para alinear los elementos */
+    flex-wrap: wrap; /* Ajusta los elementos en caso de quedar sin espacio */
+}
+
+/* Estilo para cada tarjeta de publicación */
+.card {
+    width: 18%; /* 18% del ancho de la columna */
+    margin-right: 2%; /* 2% de margen entre cada tarjeta */
+    margin-bottom: 2%; /* 2% de margen debajo de cada tarjeta */
+}
+
+/* Estilo para la imagen de la tarjeta de publicación */
+.card-img-top {
+    width: 100%; /* Ocupa el ancho completo de la tarjeta */
+}
+
+/* Estilo para la sección de paginación */
+.pagination {
+    display: flex; /* Utiliza flexbox para alinear los elementos */
+    justify-content: center; /* Alinea los elementos al centro */
+    margin-top: 2%; /* 2% de margen arriba de la sección */
+}
+
+/* Estilo para los enlaces de paginación */
+.step-links a {
+    padding: 0.5em 1em; /* Espacio alrededor del texto */
+    background-color: #ccc; /* Color de fondo */
+    color: #333; /* Color del texto */
+    text-decoration: none; /* Sin decoración de texto */
+    margin-right: 0.5em; /* Margen entre enlaces */
+}

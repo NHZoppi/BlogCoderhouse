@@ -1,0 +1,5 @@
+.pagination {
+    display: flex; /* Utiliza flexbox para alinear los elementos */
+    justify-content: center; /* Alinea los elementos al centro */
+    margin-top: 2%; /* 2% de margen arriba de la sección */
+}
